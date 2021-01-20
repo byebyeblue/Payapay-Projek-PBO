@@ -1,7 +1,12 @@
 package paypay;
 
 import java.net.URL;
+import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class PaypayController implements Initializable {
     
@@ -31,27 +37,27 @@ public class PaypayController implements Initializable {
 
     @FXML
     private TextField tfKTP;
+    
+    @FXML
+    private DatePicker dpTgl_lahir;
 
     @FXML
     private TextField tfSaldo;
 
     @FXML
-    private DatePicker dpTgl_lahir;
-
-    @FXML
-    private TextField tlCCN;
+    private TextField tfCCN;
 
     @FXML
     private TextField tfJenis_kartu;
+    
+    @FXML
+    private DatePicker dpExp_date;
 
     @FXML
     private TextField tfAlamat_penagihan;
 
     @FXML
     private TextField tfSec_num;
-
-    @FXML
-    private DatePicker dpExp_date;
 
     @FXML
     private Button btnAddAccount;
@@ -63,97 +69,31 @@ public class PaypayController implements Initializable {
     private Button btnClear;
 
     @FXML
-    private TableView<?> tblAkun;
+    private TableView<Personal> tblAkun;
 
     @FXML
-    private TableColumn<?, ?> colID;
+    private TableColumn<Personal, Integer> colID;
 
     @FXML
-    private TableColumn<?, ?> ColName;
+    private TableColumn<Personal, String> colName;
 
     @FXML
-    private TableColumn<?, ?> colAddress;
+    private TableColumn<Personal, String> colAddress;
 
     @FXML
-    private TableColumn<?, ?> colEmail;
+    private TableColumn<Personal, String> colEmail;
 
     @FXML
-    private TableColumn<?, ?> colNo_hp;
+    private TableColumn<Personal, String> colNo_hp;
 
     @FXML
-    private TableColumn<?, ?> colKTP;
+    private TableColumn<Personal, Double> colKTP;
 
     @FXML
-    private TableColumn<?, ?> colTgl_lahir;
+    private TableColumn<Personal, String> colTgl_lahir;
 
     @FXML
-    private TableColumn<?, ?> colSaldo;
-
-    @FXML
-    private TableView<?> tblCard;
-
-    @FXML
-    private TableColumn<?, ?> colCCN;
-
-    @FXML
-    private TableColumn<?, ?> colJenis_kartu;
-
-    @FXML
-    private TableColumn<?, ?> colExp_date;
-
-    @FXML
-    private TableColumn<?, ?> colAlamat;
-
-    @FXML
-    private TableColumn<?, ?> colSec_num;
-
-    @FXML
-    private TextField tfNewID;
-
-    @FXML
-    private TextField tfNewCCN;
-
-    @FXML
-    private TextField tfNewJenis_kartu;
-
-    @FXML
-    private TextField tfNewExp_date;
-
-    @FXML
-    private TextField tfNewAlamat_penagihan;
-
-    @FXML
-    private TextField tfNewSec_num;
-
-    @FXML
-    private Button btnAddCard;
-
-    @FXML
-    private Label lblDBStatus;
-
-    @FXML
-    void handleAddAccountButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleAddCardButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleClearButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleReloadButton(ActionEvent event) {
-
-    }
+    private TableColumn<Personal, Double> colSaldo;
     
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
-}
+    @FXML
+    private TableView<Card> tblCard;
