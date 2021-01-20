@@ -13,3 +13,12 @@ public class Card {
     private StringProperty expDate;
     private StringProperty alamat_penagihan;
     private IntegerProperty SecNum;
+
+    public Card(Double CCN, String jenisKartu, String expDate,
+            String alamat_penagihan, Integer SecNum) {
+        this.CCN = new SimpleDoubleProperty(CCN);
+        this.jenisKartu = new SimpleStringProperty(jenisKartu);
+        this.expDate = new SimpleStringProperty(expDate);
+        this.alamat_penagihan = new SimpleStringProperty(alamat_penagihan);
+        this.SecNum = new SimpleIntegerProperty(SecNum);
+    }
