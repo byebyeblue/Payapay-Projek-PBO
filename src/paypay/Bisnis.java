@@ -25,3 +25,41 @@ public class Bisnis extends Akun {
         this.nama_bisnis.set(nama_bisnis);
         this.mata_uang.set(mata_uang);
     }
+
+    public String getTelp_bisnis() {
+        return telp_bisnis.get();
+    }
+
+    public void setTelp_bisnis(String telp_bisnis) {
+        this.telp_bisnis.set(telp_bisnis);
+    }
+
+    public String getNama_bisnis() {
+        return nama_bisnis.get();
+    }
+
+    public void setNama_bisnis(String nama_bisnis) {
+        this.nama_bisnis.set(nama_bisnis);
+    }
+
+    public String getMata_uang() {
+        return mata_uang.get();
+    }
+
+    public void setMata_uang(String mata_uang) {
+        this.mata_uang.set(mata_uang);
+    }
+    
+    public StringProperty Telp_bisnisProperty() {
+        return telp_bisnis;
+    }
+
+    public StringProperty Nama_bisnisProperty() {
+        return nama_bisnis;
+    }
+
+    public StringProperty Mata_uangProperty() {
+        return mata_uang;
+    }
+    
+}
