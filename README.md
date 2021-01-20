@@ -47,3 +47,32 @@ classDiagram
         +withdraw(double amt)  
     }
 ```
+
+erDiagram
+        AKUN ||..|| PERSONAL : is 
+        AKUN ||--|| BISNIS : is 
+        AKUN ||--|{CARD : "has"
+        AKUN{
+            int id
+            string name
+            string address
+            string email
+            string NoHP
+            double Saldo
+        }
+        PERSONAL{
+            double KTP
+            string tgllahir
+        }
+        BISNIS{
+            string TelpBisnis
+            string namaBisnis
+            string mataUang
+        }
+        CARD{
+            double CCN
+            string JenisKartu
+            string ExpDate
+            string alamatpenagihan
+            int SecNum
+        }
