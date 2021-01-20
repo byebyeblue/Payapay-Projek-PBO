@@ -16,3 +16,16 @@ public abstract class Akun {
     private StringProperty no_hp;
     private DoubleProperty saldo;
     private ArrayList<Card> cards;
+
+    public Akun(Integer ID, String Name, String Address, String email, String no_hp,
+            Double saldo, ArrayList<Card> cards) {
+        this.ID = new SimpleIntegerProperty(ID);
+        this.Name = new SimpleStringProperty(Name);
+        this.Address = new SimpleStringProperty(Address);
+        this.email = new SimpleStringProperty(email);
+        this.no_hp = new SimpleStringProperty(no_hp);
+        this.saldo = new SimpleDoubleProperty(saldo);
+        this.cards = cards;
+    }
+    
+    
