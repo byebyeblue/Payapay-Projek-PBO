@@ -126,3 +126,39 @@ public class PaypayDataModel {
         }
         return data;
     }
+
+    public ObservableList<Card> getCards(int ID){
+        ObservableList<Card> data = FXCollections.observableArrayList();
+        String sql = "SELECT `CCN`, `jenis_kartu`, `exp_date`, `alamat_penagihan`,"
+                + " `sec_num` FROM `card`" + "WHERE ID = " + ID;
+        try{
+            ResultSet rs = conn.createStatement().executeQuery(sql);
+            while(rs.next()){
+                data.add(new Card(rs.getDouble(1), rs.getString(2), rs.getString(3),
+                    rs.getString(4), rs.getInt(5)));
+            }
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(PaypayDataModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return data;
+    }
+    
+    public int nextID() throws SQLException{
+        String sql = "SELECT MAX (ID) from akun";
+        ResultSet rs = conn.createStatement().executeQuery(sql);
+        while(rs.next()){
+            return rs.getInt(1) == 0 ? 1000001: rs.getInt(1) + 1;
+        }
+        return 1000001;
+    }
+    
+    public int nextCCN(int ID) throws SQLException{
+        String sql = "SELECT MAX (CCN) from card WHERE ID = " + ID;
+        ResultSet rs = conn.createStatement().executeQuery(sql);
+        while(rs.next()){
+            return rs.getInt(1) + 1;
+        }
+        return 0;
+    }
+}
