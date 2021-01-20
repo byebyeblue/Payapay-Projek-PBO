@@ -104,3 +104,27 @@ public abstract class Akun {
         this.saldo.set(this.saldo.get()-amt);
     }
     
+    public IntegerProperty IDProperty(){
+        return ID;
+    }
+    
+    public StringProperty NameProperty(){
+        return Name;
+    }
+    
+    public StringProperty AddressProperty(){
+        return Address;
+    }
+    
+    public StringProperty emailProperty(){
+        return email;
+    }
+    
+    public StringProperty No_hpProperty() {
+        return no_hp;
+    }
+    
+    public DoubleProperty saldoProperty(){
+        return saldo;
+    }
+}
