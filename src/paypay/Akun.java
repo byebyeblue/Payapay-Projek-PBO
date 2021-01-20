@@ -40,3 +40,67 @@ public abstract class Akun {
         this.cards.add(card);
     }
     
+    public Integer getID() {
+        return ID.get();
+    }
+
+    public void setID(Integer ID) {
+        this.ID.set(ID);
+    }
+
+    public String getName() {
+        return Name.get();
+    }
+
+    public void setName(String Name) {
+        this.Name.set(Name);
+    }
+
+    public String getAddress() {
+        return Address.get();
+    }
+
+    public void setAddress(String Address) {
+        this.Address.set(Address);
+    }
+
+    public String getEmail() {
+        return email.get();
+    }
+
+    public void setEmail(String email) {
+        this.email.set(email);
+    }
+
+    public String getNo_hp() {
+        return no_hp.get();
+    }
+
+    public void setNo_hp(String no_hp) {
+        this.no_hp.set(no_hp);
+    }
+
+    public ArrayList<Card> getCards() {
+        return cards;
+    }
+
+    public void setCards(ArrayList<Card> cards) {
+        this.cards = cards;
+    }
+    
+    public Double getSaldo() {
+        return saldo.get();
+    }
+
+    public void setSaldo(Double saldo) {
+        this.saldo.set(saldo);
+    }
+    
+    public void deposit(Double amt){
+        this.saldo.set(this.saldo.get()+amt);
+    }
+
+    public void withdraw(Double amt){
+        this.saldo.set(this.saldo.get()-amt);
+    }
+    
