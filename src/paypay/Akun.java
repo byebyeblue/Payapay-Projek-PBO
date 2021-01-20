@@ -28,4 +28,15 @@ public abstract class Akun {
         this.cards = cards;
     }
     
+    public Akun(Integer ID, String Name, String Address, String email, String no_hp,
+            Double saldo, Card card) {
+        cards = new ArrayList<>();
+        this.ID = new SimpleIntegerProperty(ID);
+        this.Name = new SimpleStringProperty(Name);
+        this.Address = new SimpleStringProperty(Address);
+        this.email = new SimpleStringProperty(email);
+        this.no_hp = new SimpleStringProperty(no_hp);
+        this.saldo = new SimpleDoubleProperty(saldo);
+        this.cards.add(card);
+    }
     
