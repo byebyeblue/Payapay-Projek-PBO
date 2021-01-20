@@ -26,5 +26,21 @@ public class DBHelper {
                 }
                 break;
             }
+            case "MYSQL":{
+                try {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    conn = DriverManager.getConnection(MYCONN, USER, PASSWORD);
+                } catch (ClassNotFoundException ex) {
+                    System.out.println("library tidak ada");
+                    Logger.getLogger(DBHelper.class.getName()).log(Level.SEVERE, null, ex);
 
+                }
+                break;
+            }
+        }
+        
+        
+        return conn;
+    }
+}
     
