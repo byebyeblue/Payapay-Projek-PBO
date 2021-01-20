@@ -47,7 +47,8 @@ classDiagram
         +withdraw(double amt)  
     }
 ```
-
+### ER Diagram
+```mermaid
 erDiagram
         AKUN ||..|| PERSONAL : is 
         AKUN ||--|| BISNIS : is 
@@ -76,3 +77,4 @@ erDiagram
             string alamatpenagihan
             int SecNum
         }
+```
