@@ -199,3 +199,49 @@ public class PaypayController implements Initializable {
         }
 	 
     }
+    @FXML
+    void handleReloadButton(ActionEvent event) {
+	ObservableList<Personal> data = ahdm.getPersonals();
+	colID.setCellValueFactory(new PropertyValueFactory<>("ID"));
+	colName.setCellValueFactory(new PropertyValueFactory<>("Name"));
+	colAddress.setCellValueFactory(new PropertyValueFactory<>("Address"));
+	colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+	colNo_hp.setCellValueFactory(new PropertyValueFactory<>("no_hp"));
+	colKTP.setCellValueFactory(new PropertyValueFactory<>("KTP"));
+	colTgl_lahir.setCellValueFactory(new PropertyValueFactory<>("tgl_lahir"));
+	colSaldo.setCellValueFactory(new PropertyValueFactory<>("saldo"));
+	tblAkun.setItems(null);
+	tblAkun.setItems(data);
+
+    }
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        try {
+            // TODO
+            ahdm = new PaypayDataModel("MYSQL");
+            lblDBStatus.setText(ahdm.conn == null ? "Not_Connected": "Connected");
+            btnClear.fire();
+            btnReload.fire();
+        } catch (SQLException ex) {
+            Logger.getLogger(PaypayController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tblAkun.getSelectionModel().selectedIndexProperty().addListener(listener->{
+            if(tblAkun.getSelectionModel().getSelectedItem()!=null){
+                Personal holder = tblAkun.getSelectionModel().getSelectedItem();
+                viewDataCard(holder.getID());
+            }
+        });
+    }    
+    
+    public void viewDataCard(int ID){
+        ObservableList<Card> data = ahdm.getCards(ID);
+        colCCN.setCellValueFactory(new PropertyValueFactory<>("CCN"));
+	colJenis_kartu.setCellValueFactory(new PropertyValueFactory<>("jenisKartu"));
+	colExp_date.setCellValueFactory(new PropertyValueFactory<>("expDate"));
+	colAlamat_penagihan.setCellValueFactory(new PropertyValueFactory<>("alamat_penagihan"));
+	colSec_num.setCellValueFactory(new PropertyValueFactory<>("SecNum"));
+        tblCard.setItems(null);
+        tblCard.setItems(data);
+    }
+}
