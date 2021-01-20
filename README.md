@@ -7,6 +7,8 @@ Anggota:
 
 3. Fanirizki Sofiyana  (1917051050)   byebyeblue
 
+pembagian tugas tertera pada commit di github.
+dengan pengerjaan dibagi perfungsi. untuk diagram, pada class Diagram dikerjaan oleh nur ayu, er diagram dikerjakan oleh fanirizki, dan desain classdiagram dikerjakan oleh aprila.
 
 # Pay Pay System
 >Sistem PayPay
