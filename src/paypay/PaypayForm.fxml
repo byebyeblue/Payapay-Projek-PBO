@@ -117,7 +117,7 @@
                                                       </TableView>
                                                    </children>
                                                 </AnchorPane>
-<AnchorPane prefHeight="264.0" prefWidth="463.0">
+                                                  <AnchorPane prefHeight="264.0" prefWidth="463.0">
                                                    <children>
                                                       <TextField fx:id="tfNewID" layoutX="12.0" layoutY="42.0" prefHeight="25.0" prefWidth="172.0" promptText="ID" />
                                                       <TextField fx:id="tfNewCCN" layoutX="12.0" layoutY="77.0" prefHeight="25.0" prefWidth="172.0" promptText="CCN" />
