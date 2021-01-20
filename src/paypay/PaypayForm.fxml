@@ -145,3 +145,14 @@
                   </AnchorPane>
             </content>
           </Tab>
+            <Tab text="Bisnis">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Label layoutX="989.0" layoutY="3.0" text="DB Status:" />
+      <Label fx:id="lblDBStatus" layoutX="1052.0" layoutY="3.0" />
+   </children>
+</AnchorPane>
