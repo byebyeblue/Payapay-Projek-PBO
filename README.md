@@ -78,3 +78,75 @@ erDiagram
             int SecNum
         }
 ```
+### Design Class Diagram for JavaFX and Database
+```mermaid
+classDiagram
+    Akun <|-- Personal
+    Akun <|-- Bisnis
+    Akun "1"--o"*" Card : has 
+    Akun o-- PaypayDataModel : Data Modeling 
+    PaypayDataModel <-- PaypayController : Data Control 
+    PaypayDataModel --> DBHelper : DB Connection 
+    PaypayController <.. PaypayForm : Form Control
+
+    class Akun{
+        <<abstract>>
+        #IntegerProperty ID
+        #StringProperty name
+        #StringProeprty address
+        #StringProperty email
+        #StringProperty NoHP
+        -DoubleProperty saldo
+
+        +IntegerProperty nextID()
+        +DOubleProperty getSaldo()
+    }
+
+    class Personal{
+        -DoubleProperty KTP
+        -StringProperty tgllahir
+    }
+
+    class Bisnis{
+        -StringProperty TelpBisnis
+        -StringProperty namaBisnis
+        -StringProperty mataUang
+    }
+
+    class Card{
+        -DoubleProperty CCN
+        -IntegerProperty SecNum
+        -StringProperty JenisKartu
+        -StringProperty ExpDate
+        -StringProperty AlamatPenagihan
+        -IntegerProperty SecNum
+        +deposit(double amt)
+        +withdraw(double amt)
+    }
+
+    class PaypayDataModel{
+        Connection conn
+        addAkun()
+        addCard()
+        getPersonals()
+        getBisniss()
+        nextID()
+        nextCCN()
+    }
+
+    class PaypayController{
+        Initialize()
+        handleButtonAddCard()
+        handleButtonAddAccount()
+        loadDataPersonal()
+        loadDataBisnis()
+        loadDataCard()
+        handleClearButton()
+    }
+
+    class DBHelper{
+        getConnection()
+        getConnection(String driver)
+        createTable()
+    }
+    ```
