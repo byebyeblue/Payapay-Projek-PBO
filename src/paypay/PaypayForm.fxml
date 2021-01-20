@@ -117,3 +117,31 @@
                                                       </TableView>
                                                    </children>
                                                 </AnchorPane>
+<AnchorPane prefHeight="264.0" prefWidth="463.0">
+                                                   <children>
+                                                      <TextField fx:id="tfNewID" layoutX="12.0" layoutY="42.0" prefHeight="25.0" prefWidth="172.0" promptText="ID" />
+                                                      <TextField fx:id="tfNewCCN" layoutX="12.0" layoutY="77.0" prefHeight="25.0" prefWidth="172.0" promptText="CCN" />
+                                                      <TextField fx:id="tfNewJenis_kartu" layoutX="12.0" layoutY="113.0" prefHeight="25.0" prefWidth="172.0" promptText="Jenis Kartu" />
+                                                      <Label layoutX="149.0" layoutY="1.0" text="Tambah Kartu">
+                                                         <font>
+                                                            <Font name="Baloo 2 Regular" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="tfNewExp_date" layoutX="209.0" layoutY="42.0" prefHeight="25.0" prefWidth="172.0" promptText="Exp Date" />
+                                                      <TextField fx:id="tfNewAlamat_penagihan" layoutX="209.0" layoutY="77.0" prefHeight="25.0" prefWidth="172.0" promptText="Alamat Penagihan" />
+                                                      <TextField fx:id="tfNewSec_num" layoutX="209.0" layoutY="114.0" prefHeight="25.0" prefWidth="172.0" promptText="Sec Number" />
+                                                      <Button fx:id="btnAddCard" layoutX="107.0" layoutY="153.0" mnemonicParsing="false" onAction="#handleAddCardButton" prefHeight="25.0" prefWidth="173.0" text="Add Card" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
