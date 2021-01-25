@@ -31,3 +31,20 @@ public class Personal extends Akun {
     public void setKTP(Double KTP) {
         this.KTP.set(KTP);
     }
+    
+    public String getTgl_lahir() {
+        return tgl_lahir.get();
+    }
+
+    public void setTgl_lahir(String tgl_lahir) {
+        this.tgl_lahir.set(tgl_lahir);
+    }
+    
+    public DoubleProperty KTPProperty() {
+        return KTP;
+    }
+    
+    public StringProperty Tgl_lahirProperty() {
+        return tgl_lahir;
+    }
+}
