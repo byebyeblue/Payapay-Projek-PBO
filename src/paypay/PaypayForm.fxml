@@ -98,3 +98,52 @@
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutX="151.0" layoutY="222.0" prefHeight="227.0" prefWidth="500.0">
+                                 <children>
+                                    <HBox prefHeight="223.0" prefWidth="499.0">
+                                       <children>
+                                          <AnchorPane prefHeight="223.0" prefWidth="523.0">
+                                             <children>
+                                                <TableView fx:id="tblCard" layoutY="-2.0" prefHeight="275.0" prefWidth="338.0">
+                                                  <columns>
+                                                    <TableColumn fx:id="colCCN" prefWidth="83.66668701171875" text="CCN" />
+                                                    <TableColumn fx:id="colJenis_kartu" prefWidth="71.3333740234375" text="Jenis Kartu" />
+                                                      <TableColumn fx:id="colExp_date" prefWidth="51.0" text="Exp Date" />
+                                                      <TableColumn fx:id="colAlamat_penagihan" prefWidth="82.0" text="Alamat" />
+                                                      <TableColumn fx:id="colSec_num" prefWidth="50.0" text="Sec Num" />
+                                                  </columns>
+                                                </TableView>
+                                                <AnchorPane layoutX="338.0" prefHeight="222.0" prefWidth="178.0" style="-fx-background-color: ccdbfd;">
+                                                   <children>
+                                                      <Label layoutX="51.0" layoutY="6.0" text="Tambah Kartu" textFill="#057ef7" />
+                                                      <TextField fx:id="tfNewID" layoutY="29.0" prefHeight="25.0" prefWidth="176.0" promptText="ID" />
+                                                      <TextField fx:id="tfNewCCN" layoutY="63.0" prefHeight="25.0" prefWidth="176.0" promptText="CCN" />
+                                                      <TextField fx:id="tfNewJenis_kartu" layoutY="97.0" prefHeight="25.0" prefWidth="178.0" promptText="Jenis Kartu" />
+                                                      <TextField fx:id="tfNewAlamat_penagihan" layoutY="165.0" prefHeight="25.0" prefWidth="176.0" promptText="Alamat Penagihan" />
+                                                      <TextField fx:id="tfNewSec_num" layoutX="1.0" layoutY="200.0" prefHeight="25.0" prefWidth="176.0" promptText="Security  Number" />
+                                                      <Button fx:id="btnaddCard" layoutX="56.0" layoutY="241.0" mnemonicParsing="false" onAction="#handleAddCardButton" text="Add Card" />
+                                                      <DatePicker fx:id="dpNewExp_date" layoutY="131.0" prefHeight="25.0" prefWidth="178.0" promptText="Exp Date" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <Button fx:id="btnClear" layoutX="1.0" layoutY="465.0" mnemonicParsing="false" onAction="#handleClearButton" prefHeight="25.0" prefWidth="149.0" text="Clear Form" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Bisnis">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+      <Label fx:id="lblDBStatus" layoutX="485.0" layoutY="6.0" />
+   </children>
+</AnchorPane>
