@@ -82,3 +82,72 @@ public class PaypayController implements Initializable {
 
     @FXML
     private TableColumn<Personal, String> colEmail;
+
+    @FXML
+    private TableColumn<Personal, String> colNo_hp;
+
+    @FXML
+    private TableColumn<Personal, Double> colKTP;
+
+    @FXML
+    private TableColumn<Personal, String> colTgl_lahir;
+
+    @FXML
+    private TableColumn<Personal, Double> colSaldo;
+    
+    @FXML
+    private TableView<Card> tblCard;
+
+    @FXML
+    private TableColumn<Card, Double> colCCN;
+
+    @FXML
+    private TableColumn<Card, String> colJenis_kartu;
+
+    @FXML
+    private TableColumn<Card, String> colExp_date;
+
+    @FXML
+    private TableColumn<Card, String> colAlamat_penagihan;
+
+    @FXML
+    private TableColumn<Card, Integer> colSec_num;
+
+    @FXML
+    private TextField tfNewID;
+
+    @FXML
+    private TextField tfNewCCN;
+
+    @FXML
+    private TextField tfNewJenis_kartu;
+
+    @FXML
+    private DatePicker dpNewExp_date;
+
+    @FXML
+    private TextField tfNewAlamat_penagihan;
+
+    @FXML
+    private TextField tfNewSec_num;
+
+    @FXML
+    private Button btnAddCard;
+
+    @FXML
+    private Label lblDBStatus;
+    
+    @FXML
+    private Label lblSaveStatus;
+    private PaypayDataModel ahdm;
+    
+    public void viewDataCard(int ID){
+        ObservableList<Card> data = ahdm.getCards(ID);
+        colCCN.setCellValueFactory(new PropertyValueFactory<>("CCN"));
+	colJenis_kartu.setCellValueFactory(new PropertyValueFactory<>("jenisKartu"));
+	colExp_date.setCellValueFactory(new PropertyValueFactory<>("expDate"));
+	colAlamat_penagihan.setCellValueFactory(new PropertyValueFactory<>("alamat_penagihan"));
+	colSec_num.setCellValueFactory(new PropertyValueFactory<>("SecNum"));
+        tblCard.setItems(null);
+        tblCard.setItems(data);
+    }
