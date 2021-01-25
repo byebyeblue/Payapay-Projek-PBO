@@ -17,7 +17,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("PaypayForm.fxml"));
         
         Scene scene = new Scene(root);
-        
+        stage.setTitle("PAYPAY");
         stage.setScene(scene);
         stage.show();
     }
