@@ -63,3 +63,67 @@ public abstract class Akun {
     public void setAddress(String Address) {
         this.Address.set(Address);
     }
+public String getEmail() {
+        return email.get();
+    }
+
+    public void setEmail(String email) {
+        this.email.set(email);
+    }
+
+    public String getNo_hp() {
+        return no_hp.get();
+    }
+
+    public void setNo_hp(String no_hp) {
+        this.no_hp.set(no_hp);
+    }
+
+    public ArrayList<Card> getCards() {
+        return cards;
+    }
+
+    public void setCards(ArrayList<Card> cards) {
+        this.cards = cards;
+    }
+    
+    public Double getSaldo() {
+        return saldo.get();
+    }
+
+    public void setSaldo(Double saldo) {
+        this.saldo.set(saldo);
+    }
+    
+    public void deposit(Double amt){
+        this.saldo.set(this.saldo.get()+amt);
+    }
+
+    public void withdraw(Double amt){
+        this.saldo.set(this.saldo.get()-amt);
+    }
+    
+    public IntegerProperty IDProperty(){
+        return ID;
+    }
+    
+    public StringProperty NameProperty(){
+        return Name;
+    }
+    
+    public StringProperty AddressProperty(){
+        return Address;
+    }
+    
+    public StringProperty emailProperty(){
+        return email;
+    }
+    
+    public StringProperty No_hpProperty() {
+        return no_hp;
+    }
+    
+    public DoubleProperty saldoProperty(){
+        return saldo;
+    }
+}
