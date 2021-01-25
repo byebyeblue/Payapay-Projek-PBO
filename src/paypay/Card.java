@@ -35,7 +35,7 @@ public class Card {
         return CCN.get();
     }
 
-    public void setCCN(Double CCN) {
+    public void setCCN(Integer CCN) {
         this.CCN.set(CCN);
     }
 
