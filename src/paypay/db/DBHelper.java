@@ -87,3 +87,46 @@ public class DBHelper {
                         + ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
                 break;
             }
+            case "SQLITE": {
+                sqlCreate = "CREATE TABLE IF NOT EXIST akun ("
+                        + "    ID      INT (10)      PRIMARY KEY,"
+                        + "    name    VARCHAR (100),"
+                        + "    address VARCHAR (200),"
+                        + "    email   VARCHAR (35),"
+                        + "    no_hp   VARCHAR (15),"
+                        + "    saldo   DOUBLE"
+                        + ");"
+                        + "CREATE TABLE IF NOT EXIST bisnis ("
+                        + "    ID          INT (10)     PRIMARY KEY"
+                        + "                             REFERENCES akun (ID) ON DELETE RESTRICT"
+                        + "                                                  ON UPDATE CASCADE,"
+                        + "    telp_bisnis VARCHAR (15),"
+                        + "    nama_bisnis VARCHAR (50),"
+                        + "    mata_uang   VARCHAR (20)"
+                        + ");"
+                        + "CREATE TABLE IF NOT EXIST card ("
+                        + "    CCN              DOUBLE        PRIMARY KEY,"
+                        + "    jenis_kartu      VARCHAR (50),"
+                        + "    exp_date         DATE,"
+                        + "    alamat_penagihan VARCHAR (200),"
+                        + "    sec_num          INT (3),"
+                        + "    ID               INT (10)      REFERENCES akun (ID) ON DELETE RESTRICT"
+                        + "                                                        ON UPDATE CASCADE"
+                        + ");"
+                        + "CREATE TABLE IF NOT EXIST personal ("
+                        + "    ID        INT (10) PRIMARY KEY"
+                        + "                       REFERENCES akun (ID) ON DELETE RESTRICT"
+                        + "                                            ON UPDATE CASCADE,"
+                        + "    KTP       DOUBLE,"
+                        + "    tgl_lahir DATE"
+                        + ");";
+                break;
+            }
+        }
+        String sqls[] = sqlCreate.split(";");
+        for (String sql : sqls) {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.execute();
+        }
+    }
+    }
