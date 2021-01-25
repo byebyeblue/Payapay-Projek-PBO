@@ -53,3 +53,48 @@
                                              <font>
                                                 <Font name="System Bold" size="12.0" />
                                              </font></Label>
+                                          <TextField fx:id="tfID" layoutX="1.0" layoutY="30.0" promptText="ID" />
+                                          <TextField fx:id="tfName" layoutX="2.0" layoutY="55.0" promptText="Name" />
+                                          <TextField fx:id="tfAddress" layoutX="1.0" layoutY="80.0" promptText="Address" />
+                                          <TextField fx:id="tfEmail" layoutX="1.0" layoutY="105.0" promptText="Email" />
+                                          <TextField fx:id="tfNo_hp" layoutX="1.0" layoutY="130.0" promptText="Phone Number" />
+                                          <TextField fx:id="tfKTP" layoutX="1.0" layoutY="155.0" promptText="KTP" />
+                                          <DatePicker fx:id="dpTgl_lahir" layoutX="-5.0" layoutY="176.0" prefHeight="25.0" prefWidth="155.0" promptText="Tanggal Lahir" />
+                                          <TextField fx:id="tfSaldo" layoutX="2.0" layoutY="201.0" promptText="Saldo" />
+                                          <TextField fx:id="tfCCN" layoutX="2.0" layoutY="227.0" promptText="CCN" />
+                                          <TextField fx:id="tfJenis_kartu" layoutX="2.0" layoutY="252.0" promptText="Jenis Kartu" />
+                                          <DatePicker fx:id="dpExp_date" layoutX="-2.0" layoutY="277.0" prefHeight="25.0" prefWidth="153.0" promptText="Exp Date" />
+                                          <TextField fx:id="tfAlamat_penagihan" layoutX="2.0" layoutY="302.0" promptText="Alamat Penagihan" />
+                                          <TextField fx:id="tfSec_num" layoutX="1.0" layoutY="327.0" promptText="Security Number" />
+                                          <Button fx:id="btnAddAccount" layoutX="2.0" layoutY="395.0" mnemonicParsing="false" onAction="#handleAddAccountButton" prefHeight="25.0" prefWidth="148.0" text="Add Account" />
+                                          <Label fx:id="lblSaveStatus" layoutX="2.0" layoutY="362.0" prefHeight="25.0" prefWidth="149.0" />
+                                          <Button fx:id="btnReload" layoutX="1.0" layoutY="429.0" mnemonicParsing="false" onAction="#handleReloadButton" prefHeight="25.0" prefWidth="148.0" text="Reload Data Table" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </HBox>
+                              <AnchorPane layoutX="151.0" prefHeight="247.0" prefWidth="498.0">
+                                 <children>
+                                    <VBox prefHeight="217.0" prefWidth="500.0">
+                                       <children>
+                                          <AnchorPane prefHeight="214.0" prefWidth="500.0">
+                                             <children>
+                                                <TableView fx:id="tblAkun" prefHeight="223.0" prefWidth="517.0">
+                                                  <columns>
+                                                    <TableColumn fx:id="colID" prefWidth="80.33334350585938" text="ID" />
+                                                    <TableColumn fx:id="colName" prefWidth="76.66665649414062" text="Name" />
+                                                      <TableColumn fx:id="colAddress" prefWidth="58.0" text="Address" />
+                                                      <TableColumn fx:id="colEmail" prefWidth="58.66668701171875" text="Email" />
+                                                      <TableColumn fx:id="colNo_hp" prefWidth="57.33331298828125" text="No.Hp" />
+                                                      <TableColumn fx:id="colKTP" prefWidth="81.0" text="KTP" />
+                                                      <TableColumn fx:id="colTgl_lahir" prefWidth="55.0" text="Tgl Lahir" />
+                                                      <TableColumn fx:id="colSaldo" prefWidth="52.66668701171875" text="Saldo" />
+                                                  </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="151.0" layoutY="222.0" prefHeight="227.0" prefWidth="500.0">
