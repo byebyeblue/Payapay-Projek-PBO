@@ -60,3 +60,109 @@ public class PaypayDataModel {
         stmtAkun.setDouble(6, holder.getSaldo());
         stmtAkun.execute();
         
+        PreparedStatement stmtBisnis = conn.prepareStatement(insertBisnis);
+        stmtBisnis.setInt(1, holder.getID());
+        stmtBisnis.setString(2, holder.getTelp_bisnis());
+        stmtBisnis.setString(3, holder.getNama_bisnis());
+        stmtBisnis.setString(4, holder.getMata_uang());
+        stmtBisnis.execute();
+        
+        PreparedStatement stmtCard = conn.prepareStatement(insertCard);
+        stmtCard.setDouble(1, holder.getCards().get(0).getCCN());
+        stmtCard.setString(2, holder.getCards().get(0).getJenisKartu());
+        stmtCard.setString(3, holder.getCards().get(0).getExpDate());
+        stmtCard.setString(4, holder.getCards().get(0).getAlamat_penagihan());
+        stmtCard.setInt(5, holder.getCards().get(0).getSecNum());
+        stmtCard.setInt(6, holder.getID());
+        stmtCard.execute();
+    }
+    
+    public ObservableList<Personal> getPersonals(){
+        ObservableList<Personal> data = FXCollections.observableArrayList();
+        String sql = "SELECT `ID`, `name`, `address`, `email`, `no_hp`, `saldo`, `KTP`, `tgl_lahir` FROM `akun` NATURAL JOIN `personal` ORDER BY name";
+        try {
+            ResultSet rs = conn.createStatement().executeQuery(sql);
+            while(rs.next()){
+                String sqlCard = "SELECT CCN, jenis_kartu, exp_date, alamat_penagihan, sec_num FROM card WHERE ID=" + rs.getInt(1);
+                ResultSet rsCard = conn.createStatement().executeQuery(sqlCard);
+                ArrayList<Card> dataCard = new ArrayList<>();
+                while(rsCard.next()){
+                    dataCard.add(new Card(rsCard.getDouble(1), 
+                            rsCard.getString(2), rsCard.getString(3), 
+                            rsCard.getString(4), rsCard.getInt(5)));
+                }
+                data.add(new Personal(rs.getInt(1), rs.getString(2), rs.getString(3),
+                    rs.getString(4), rs.getString(5), rs.getDouble(6), 
+                    rs.getDouble(7), rs.getString(8), dataCard));
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(PaypayDataModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return data;
+    }
+    
+    public ObservableList<Bisnis> getBisniss(){
+        ObservableList<Bisnis> data = FXCollections.observableArrayList();
+        String sql = "SELECT `ID`, `name`, `address`, `email`, `no_hp`, `saldo`, `telp_bisnis`, `nama_bisnis`, `mata_uang` FROM `akun` NATURAL JOIN `bisnis` ORDER BY name";
+        try {
+            ResultSet rs = conn.createStatement().executeQuery(sql);
+            while(rs.next()){
+                String sqlCard = "SELECT CCN, jenis_kartu, exp_date, alamat_penagihan, sec_num WHERE ID=" + rs.getInt(1);
+                ResultSet rsCard = conn.createStatement().executeQuery(sqlCard);
+                ArrayList<Card> dataCard = new ArrayList<>();
+                while(rsCard.next()){
+                    dataCard.add(new Card(rsCard.getDouble(1), 
+                            rsCard.getString(2), rsCard.getString(3), 
+                            rsCard.getString(4), rsCard.getInt(5)));
+                }
+                data.add(new Bisnis(rs.getInt(1), rs.getString(2), rs.getString(3),
+                    rs.getString(4), rs.getString(5), rs.getDouble(6), 
+                    rs.getString(7), rs.getString(8), rs.getString(9), dataCard));
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(PaypayDataModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return data;
+    }
+    
+    public ObservableList<Card> getCards(int ID){
+        ObservableList<Card> data = FXCollections.observableArrayList();
+        String sql = "SELECT `CCN`, `jenis_kartu`, `exp_date`, `alamat_penagihan`,"
+                + " `sec_num` FROM `card`" + " WHERE ID=" + ID;
+        try{
+            ResultSet rs = conn.createStatement().executeQuery(sql);
+            while(rs.next()){
+                data.add(new Card(rs.getDouble(1), rs.getString(2), rs.getString(3),
+                    rs.getString(4), rs.getInt(5)));
+            }
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(PaypayDataModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return data;
+    }
+    
+    public int nextID() throws SQLException{
+        String sql = "SELECT MAX(ID) from akun";
+        ResultSet rs = conn.createStatement().executeQuery(sql);
+        while(rs.next()){
+            return rs.getInt(1) == 0 ? 1000001: rs.getInt(1) + 1;
+        }
+        return 1000001;
+    }
+       public void addCard(int ID, Card crd) throws SQLException{
+        String insertAkun = "INSERT INTO card (CCN, jenis_kartu, exp_date, alamat_penagihan, sec_num, ID)" + " VALUES (?, ?, ?, ?, ?, ?)";
+        
+        PreparedStatement stmtAkun = conn.prepareStatement(insertAkun);
+        stmtAkun.setDouble(1, crd.getCCN());
+        stmtAkun.setString(2, crd.getJenisKartu());
+        stmtAkun.setString(3, crd.getExpDate());
+        stmtAkun.setString(4, crd.getAlamat_penagihan());
+        stmtAkun.setInt(5, crd.getSecNum());
+        stmtAkun.setInt(6, ID);
+        stmtAkun.execute();   
+    }
+}
+        
